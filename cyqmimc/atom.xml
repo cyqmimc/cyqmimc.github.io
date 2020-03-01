@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>MIMC&#39;BLOG</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://cyqmimc.github.io/"/>
+  <updated>2018-01-31T08:11:11.324Z</updated>
+  <id>http://cyqmimc.github.io/</id>
+  
+  <author>
+    <name>cyqmimc</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>值班text</title>
+    <link href="http://cyqmimc.github.io/2018/01/31/%E5%80%BC%E7%8F%ADtext/"/>
+    <id>http://cyqmimc.github.io/2018/01/31/值班text/</id>
+    <published>2018-01-31T08:11:11.000Z</published>
+    <updated>2018-01-31T08:11:11.324Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>git 学习</title>
+    <link href="http://cyqmimc.github.io/2018/01/24/git-%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://cyqmimc.github.io/2018/01/24/git-学习/</id>
+    <published>2018-01-24T09:20:46.000Z</published>
+    <updated>2018-01-24T09:22:57.072Z</updated>
+    
+    <content type="html"><![CDATA[<p>#常用 Git 命令整理<br>git add file_name                                     # 向暂存区添加文件<br>git branch                                            # 查看目前git仓库中已有的分支<br>git branch new_branch_name                            # 创建分支，无分支起点默认在当前提交上创建分支<br>git branch -d branch_name                             # 删除分支<br>git branch -D branch_name                             # 强制删除分支<br>git checkout branch_name                              # 切换分支<br>git checkout -b branch_name                           # 新建并切换到该分支<br>git checkout – file_name                             # 丢弃工作区的修改<br>git commit -m “commit_log”                            # 保存暂存区记录<br>git commit -am “commit_log”                           # 保存目录中已被跟踪的文件的暂存区记录<br>git clone remote_repo_url [file_path]                 # 克隆远程仓库到本地<br>git diff                                              # 比较工作目录和暂存区的差异<br>git diff HEAD^                                        # 比较工作目录与仓库中最近一次的提交间的差异<br>git diff -cached                                      # 比较暂存区和仓库中最近一次的提交间的差异<br>git fetch remote_repo_name                            # 从远程仓库抓取最新数据到本地但不与本地分支进行合并<br>git init                                              # 初始化仓库<br>git log                                               # 查看提交日志<br>git log –pretty=short                                # 只显示提交信息的第一行<br>git log file_name                                     # 只显示指定目录、文件的日志<br>git log -p                                            # 显示文件的改动<br>git log –graph                                       # 用图形查看<br>git log –pretty=oneline                              # 查看简要信息<br>git merge branch_name                                 # 在master分支下进行，合并分支<br>git merge –no-ff -m “merge_log” branch_name          # 禁用Fast forward模式，并生成一个commit<br>git pull origin branch_name                           # 从远程仓库抓取最新数据并自动与本地分支进行合并<br>git pull –rebase origin branch_name                  # 第一次拉取的时候先将本地与远程同步<br>git push origin branch_name                           # 将本地仓库推送到远程仓库中<br>git push -u origin branch_name                        # 第一次推送时将本地与远程关联起来<br>git push -f origin branch_name                        # 强制同步远程与本地仓库<br>git push origin tag_name                              # 将标签推送到远程仓库<br>git rm file_name                                      # 删除仓库文件<br>git reset –hard HEAD^                                # 回退到上一个版本<br>git reset –hard commit_id                            # 回退到指定的版本<br>git reflog                                            # 查看提交命令<br>git reset HEAD – file_name                           # 撤销暂存区具体文件的修改<br>git remote                                            # 查看本地已经添加的远程仓库<br>git remote -v                                         # 可以一并查看远程仓库的地址<br>git remote show remote_repo_name                      # 查看远程仓库信息<br>git remote add origin remote_repo_url                 # 在本地添加远程仓库<br>git remote rm remote_repo_name                        # 删除本地添加的远程仓库<br>git remote rename old_name new_name                   # 重命名远程仓库<br>git status                                            # 查看仓库状态<br>git stash                                             # 隐藏工作现场<br>git stash list                                        # 查看工作现场<br>git stash apply                                       # 恢复工作现场<br>git stash drop                                        # 删除stash内容<br>git stash pop                                         # 恢复现场并删除stash内容<br>git show commit -commit_id                            # 查看指定id的提交信息<br>git show -all                                         # 显示提交历史</p><p>git config –global user.name “your_name”             # 配置Github账号<br>git config –global user.email “your_email”           # 配置Github邮箱<br>ssh-keygen -t rsa -C “your_email”                     # 设置ssh key<br>cat ~/.ssh/id_rsa.pub                                 # 查看ssh公钥<br>ssh -T git@github.com                                 # 与Github进行验证</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#常用 Git 命令整理&lt;br&gt;git add file_name                                     # 向暂存区添加文件&lt;br&gt;git branch                                           
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://cyqmimc.github.io/2018/01/24/hello-world/"/>
+    <id>http://cyqmimc.github.io/2018/01/24/hello-world/</id>
+    <published>2018-01-24T01:38:04.635Z</published>
+    <updated>2018-01-24T01:38:04.635Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
