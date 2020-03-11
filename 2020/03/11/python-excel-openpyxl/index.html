@@ -15,13 +15,10 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="用python读写excel的强大工具：openpyxlopenpyxl官网地址：http:&#x2F;&#x2F;openpyxl.readthedocs.io&#x2F;en&#x2F;default&#x2F; 1、基本概念在openpyxl中，主要用到三个概念：Workbooks，Sheets，Cells。Workbook就是一个excel工作表；Sheet是工作表中的一张表页；Cell就是简单的一个格。openpyxl就是围绕着这三个概">
 <meta property="og:locale" content="cn">
-<meta property="og:image" content="https://images2015.cnblogs.com/blog/439064/201702/439064-20170214212332597-172987904.png">
-<meta property="og:image" content="https://images2015.cnblogs.com/blog/439064/201702/439064-20170214212532316-1597917695.png">
 <meta property="article:published_time" content="2020-03-11T09:19:31.000Z">
-<meta property="article:modified_time" content="2020-03-11T09:30:37.522Z">
+<meta property="article:modified_time" content="2020-03-11T09:38:12.024Z">
 <meta property="article:author" content="cyqmimc">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/439064/201702/439064-20170214212332597-172987904.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -180,7 +177,6 @@
         <h2 id="用python读写excel的强大工具：openpyxl"><a href="#用python读写excel的强大工具：openpyxl" class="headerlink" title="用python读写excel的强大工具：openpyxl"></a>用python读写excel的强大工具：openpyxl</h2><p>openpyxl官网地址：<a href="http://openpyxl.readthedocs.io/en/default/" target="_blank" rel="noopener">http://openpyxl.readthedocs.io/en/default/</a></p>
 <h4 id="1、基本概念"><a href="#1、基本概念" class="headerlink" title="1、基本概念"></a>1、基本概念</h4><p>在openpyxl中，主要用到三个概念：Workbooks，Sheets，Cells。Workbook就是一个excel工作表；Sheet是工作表中的一张表页；Cell就是简单的一个格。openpyxl就是围绕着这三个概念进行的，不管读写都是“三板斧”：打开Workbook，定位Sheet，操作Cell</p>
 <h4 id="2、读取xlsx"><a href="#2、读取xlsx" class="headerlink" title="2、读取xlsx"></a>2、读取xlsx</h4><p>为了做实验，我事先准备好了一个excel文档，里面有Sheet1，Sheet2，Sheet3这三个页，在Sheet3中填入了如下内容：</p>
-<p><img src="https://images2015.cnblogs.com/blog/439064/201702/439064-20170214212332597-172987904.png" alt="img"></p>
 <p>首先用</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> openpyxl <span class="keyword">import</span> load_workbook</span><br></pre></td></tr></table></figure>
 
@@ -215,10 +211,6 @@
 
 <p>最后记得保存</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wb.save(<span class="string">'保存一个新的excel.xlsx'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>之后可以打开看看</p>
-<p><img src="https://images2015.cnblogs.com/blog/439064/201702/439064-20170214212532316-1597917695.png" alt="img"></p>
-
       
 
       
