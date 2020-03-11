@@ -154,6 +154,109 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python-excel-openpyxl" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/11/python-excel-openpyxl/">python-excel-openpyxl</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/11/python-excel-openpyxl/" class="archive-article-date">
+  	<time datetime="2020-03-11T09:19:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="用python读写excel的强大工具：openpyxl"><a href="#用python读写excel的强大工具：openpyxl" class="headerlink" title="用python读写excel的强大工具：openpyxl"></a>用python读写excel的强大工具：openpyxl</h2><p>openpyxl官网地址：<a href="http://openpyxl.readthedocs.io/en/default/" target="_blank" rel="noopener">http://openpyxl.readthedocs.io/en/default/</a></p>
+<h4 id="1、基本概念"><a href="#1、基本概念" class="headerlink" title="1、基本概念"></a>1、基本概念</h4><p>在openpyxl中，主要用到三个概念：Workbooks，Sheets，Cells。Workbook就是一个excel工作表；Sheet是工作表中的一张表页；Cell就是简单的一个格。openpyxl就是围绕着这三个概念进行的，不管读写都是“三板斧”：打开Workbook，定位Sheet，操作Cell</p>
+<h4 id="2、读取xlsx"><a href="#2、读取xlsx" class="headerlink" title="2、读取xlsx"></a>2、读取xlsx</h4><p>为了做实验，我事先准备好了一个excel文档，里面有Sheet1，Sheet2，Sheet3这三个页，在Sheet3中填入了如下内容：</p>
+<p><img src="https://images2015.cnblogs.com/blog/439064/201702/439064-20170214212332597-172987904.png" alt="img"></p>
+<p>首先用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> openpyxl <span class="keyword">import</span> load_workbook</span><br></pre></td></tr></table></figure>
+
+<p>引入库。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wb = load_workbook(<span class="string">"template.xlsx"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>打开一个xlsx文件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(wb.sheetnames)    <span class="comment"># ['Sheet1', 'Sheet2', 'Sheet3']</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看看打开的excel表里面有哪些sheet页。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sheet = wb.get_sheet_by_name(<span class="string">"Sheet3"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>读取到指定的Sheet页，sheet就变得神奇了，想要的内容都在这里。比如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">print(sheet[<span class="string">"C"</span>])    <span class="comment"># (&lt;Cell Sheet3.C1&gt;, &lt;Cell Sheet3.C2&gt;, &lt;Cell Sheet3.C3&gt;, &lt;Cell Sheet3.C4&gt;, &lt;Cell Sheet3.C5&gt;, &lt;Cell Sheet3.C6&gt;, &lt;Cell Sheet3.C7&gt;, &lt;Cell Sheet3.C8&gt;, &lt;Cell Sheet3.C9&gt;, &lt;Cell Sheet3.C10&gt;)      &lt;-第C列</span></span><br><span class="line">print(sheet[<span class="string">"4"</span>])    <span class="comment"># (&lt;Cell Sheet3.A4&gt;, &lt;Cell Sheet3.B4&gt;, &lt;Cell Sheet3.C4&gt;, &lt;Cell Sheet3.D4&gt;, &lt;Cell Sheet3.E4&gt;)     &lt;-第4行</span></span><br><span class="line">print(sheet[<span class="string">"C4"</span>].value)    <span class="comment"># c4     &lt;-第C4格的值</span></span><br><span class="line">print(sheet.max_row)    <span class="comment"># 10     &lt;-最大行数</span></span><br><span class="line">print(sheet.max_column)    <span class="comment"># 5     &lt;-最大列数</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> sheet[<span class="string">"C"</span>]:</span><br><span class="line">  print(i.value, end=<span class="string">" "</span>)    <span class="comment"># c1 c2 c3 c4 c5 c6 c7 c8 c9 c10     &lt;-C列中的所有值</span></span><br></pre></td></tr></table></figure>
+
+<p>3、写入xlsx</p>
+<p>首先用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> openpyxl <span class="keyword">import</span> Workbook</span><br><span class="line">wb = Workbook()</span><br></pre></td></tr></table></figure>
+
+<p>创建一个工作表，然后</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sheet = wb.active</span><br></pre></td></tr></table></figure>
+
+<p>找到活动的sheet页。空的excel表默认的sheet页就叫Sheet，如果想改名字，可以直接给title属性赋值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sheet.title = <span class="string">"New Shit"</span></span><br></pre></td></tr></table></figure>
+
+<p>这个属性是可读可写的。当然，这个只针对当前活动页，别的页的话，可以用create_sheet和remove_sheet进行添加和删除。</p>
+<p>往sheet页里面写内容就比较简单了，跟上面读一样，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sheet[<span class="string">'C3'</span>] = <span class="string">'Hello world!'</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">  sheet[<span class="string">"A%d"</span> % (i+<span class="number">1</span>)].value = i + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>我们还可以进行花式操作，比如写写公式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sheet[<span class="string">"E1"</span>].value = <span class="string">"=SUM(A:A)"</span></span><br></pre></td></tr></table></figure>
+
+<p>最后记得保存</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wb.save(<span class="string">'保存一个新的excel.xlsx'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>之后可以打开看看</p>
+<p><img src="https://images2015.cnblogs.com/blog/439064/201702/439064-20170214212532316-1597917695.png" alt="img"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/11/python-excel-openpyxl/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
