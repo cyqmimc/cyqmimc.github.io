@@ -154,6 +154,184 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/11/mysql/">mysql</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/11/mysql/" class="archive-article-date">
+  	<time datetime="2020-03-11T08:42:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="数据库权限操作"><a href="#数据库权限操作" class="headerlink" title="数据库权限操作"></a>数据库权限操作</h2><h3 id="1-连接Mysql"><a href="#1-连接Mysql" class="headerlink" title="1.连接Mysql"></a>1.连接Mysql</h3><p>格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -h主机地址 -u用户名 －p用户密码</span><br><span class="line">如：mysql -u root -p -h 127.0.0.1 -P 3306</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-连接到本机上的-mysql"><a href="#1-连接到本机上的-mysql" class="headerlink" title="(1)连接到本机上的 mysql"></a>(1)连接到本机上的 mysql</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<p>回车后提示你输密码.注意用户名前可以有空格也可以没有空格，但是密码前必须没有空格，否则让你重新输入密码。<br>如果刚安装好MYSQL，超级用户root是没有密码的，故直接回车即可进入到MYSQL中了，MYSQL的提示符是： mysql&gt;</p>
+<h5 id="2-连接到远程主机上的MYSQL。"><a href="#2-连接到远程主机上的MYSQL。" class="headerlink" title="(2)连接到远程主机上的MYSQL。"></a>(2)连接到远程主机上的MYSQL。</h5><p>假设远程主机的IP为：110.110.110.110，用户名为root,密码为abcd123。则键入以下命令：</p>
+<pre><code>mysql -h110.110.110.110 -u root -p 123;（注:u与root之间可以不用加空格，其它也一样）</code></pre><h3 id="2-退出MYSQL命令"><a href="#2-退出MYSQL命令" class="headerlink" title="2.退出MYSQL命令"></a>2.退出MYSQL命令</h3><pre><code>exit （回车）</code></pre><h3 id="3-修改密码"><a href="#3-修改密码" class="headerlink" title="3.修改密码"></a>3.修改密码</h3><p>//修改用户的密码update mysql.user set password=password(‘1234’) where User=”root” and Host=”localhost”;</p>
+<p>//修改root的密码update mysql.user set password=password(‘1234’) where User=”root” and Host=”localhost”;</p>
+<p>//或则SET PASSWORD = PASSWORD(‘1234’); </p>
+<h3 id="4-增加新用户"><a href="#4-增加新用户" class="headerlink" title="4.增加新用户"></a>4.增加新用户</h3><p>格式：grant 操作权限 on 数据库.* to 用户名@登陆主机地址</p>
+<p>数据.<em>的</em>表示所有的表<br>identified by ‘密码’<br>意思是：授予，某主机上的某用户（附带该用户的登陆密码）在某数据库上，执行某些操作的权限<br>(1)比如：任意主机上(“%”)，用户（用户名：test1，密码：adc,如果之前没有用户名为test1的会新建一个test1用户）在所有数据库上，执行任意操作的权限（很危险）</p>
+<p>grant all privileges on <em>.</em> to test1@”%” identified by “abc”;</p>
+<p>其中all privileges表示查询，插入，修改，删除的权限：select,insert,update,delete<br>以上命令等价于：</p>
+<p>grant select,insert,update,delete on <em>.</em> to test1@”%” identified by “abc”;</p>
+<p>然后刷新权限</p>
+<p>flush privileges;</p>
+<h3 id="5-删除用户"><a href="#5-删除用户" class="headerlink" title="5.删除用户"></a>5.删除用户</h3><p>删除mysql数据库中user表中的某个本地用户（test7）</p>
+<p>use mysql;<br>delete from user where User=”test7” and Host=”localhost”;</p>
+<h4 id="数据库相关操作"><a href="#数据库相关操作" class="headerlink" title="数据库相关操作"></a>数据库相关操作</h4><h5 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="1.创建数据库"></a>1.创建数据库</h5><p>格式如下</p>
+<p>create database 库名;</p>
+<h5 id="2-显示所有数据库"><a href="#2-显示所有数据库" class="headerlink" title="2.显示所有数据库"></a>2.显示所有数据库</h5><p>show databases;</p>
+<h5 id="3-切换数据库"><a href="#3-切换数据库" class="headerlink" title="3.切换数据库"></a>3.切换数据库</h5><p>use 库名；</p>
+<h5 id="4-删除数据库"><a href="#4-删除数据库" class="headerlink" title="4.删除数据库"></a>4.删除数据库</h5><p>drop database 库名;</p>
+<h4 id="数据表操作"><a href="#数据表操作" class="headerlink" title="数据表操作"></a>数据表操作</h4><h5 id="1-创建数据表"><a href="#1-创建数据表" class="headerlink" title="1.创建数据表"></a>1.创建数据表</h5><p>use 库名；<br>create table 表名 (字段设定列表);</p>
+<h5 id="2-显示所有数据表"><a href="#2-显示所有数据表" class="headerlink" title="2.显示所有数据表"></a>2.显示所有数据表</h5><p>use 库名;<br>show tables;</p>
+<h5 id="3-某表的数据结构"><a href="#3-某表的数据结构" class="headerlink" title="3.某表的数据结构"></a>3.某表的数据结构</h5><p>describe 表名;</p>
+<h5 id="4-显示表中所有记录"><a href="#4-显示表中所有记录" class="headerlink" title="4.显示表中所有记录"></a>4.显示表中所有记录</h5><p>select * from 表名;</p>
+<h5 id="5-删除表"><a href="#5-删除表" class="headerlink" title="5.删除表"></a>5.删除表</h5><p>drop table 表名;</p>
+<h5 id="6-删除表数据"><a href="#6-删除表数据" class="headerlink" title="6.删除表数据"></a>6.删除表数据</h5><p>delete from 表名;</p>
+<p>truncate table 表名;</p>
+<p>不带where参数的delete语句可以删除mysql表中所有内容；</p>
+<p>使用truncate table也可以清空mysql表中所有内容；<br>(1)但是使用delete清空表中的记录，内容的ID仍然从删除点的ID继续建立，而不是从1开始。<br>而truncate相当于保留了表的结构而重新建立了一张同样的新表。<br>(2)效率上truncate比delete快。<br>但truncate删除后不记录mysql日志，不可以恢复数据。<br>delete的效果有点像将mysql表中所有记录一条一条删除到删完。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/11/mysql/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ss" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/08/ss/">ss</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/08/ss/" class="archive-article-date">
+  	<time datetime="2020-03-08T10:06:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ss后台操作命令</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">启动：/etc/init.d/shadowsocks start </span><br><span class="line">停止：/etc/init.d/shadowsocks stop </span><br><span class="line">重启：/etc/init.d/shadowsocks restart </span><br><span class="line">状态：/etc/init.d/shadowsocks status</span><br></pre></td></tr></table></figure>
+
+<p>编辑配置文件路径：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/shadowsocks.json</span><br></pre></td></tr></table></figure>
+
+<p>日志文件路径：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/var/log/shadowsocks.log</span><br></pre></td></tr></table></figure>
+
+<p>安装ss</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python-pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssserver -p 443 -k password -m rc4-md5</span><br></pre></td></tr></table></figure>
+
+<p>如果要后台运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ssserver -p 443 -k password -m rc4-md5 --user nobody -d start</span><br></pre></td></tr></table></figure>
+
+<p>如果要停止：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ssserver -d stop</span><br></pre></td></tr></table></figure>
+
+<p>如果要检查日志：</p>
+<figure class="highlight plain"><figcaption><span>y</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo less &#x2F;var&#x2F;log&#x2F;shadowsocks.log</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/08/ss/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-google-smtp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
