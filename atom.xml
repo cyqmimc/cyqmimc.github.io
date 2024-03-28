@@ -6,7 +6,7 @@
   <link href="https://cyqmimc.github.io/atom.xml" rel="self"/>
   
   <link href="https://cyqmimc.github.io/"/>
-  <updated>2024-03-28T02:51:35.615Z</updated>
+  <updated>2024-03-28T07:26:35.152Z</updated>
   <id>https://cyqmimc.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>有土斯有财</title>
+    <link href="https://cyqmimc.github.io/2024/03/28/%E6%9C%89%E5%9C%9F%E6%96%AF%E6%9C%89%E8%B4%A2/"/>
+    <id>https://cyqmimc.github.io/2024/03/28/%E6%9C%89%E5%9C%9F%E6%96%AF%E6%9C%89%E8%B4%A2/</id>
+    <published>2024-03-28T07:18:24.000Z</published>
+    <updated>2024-03-28T07:26:35.152Z</updated>
+    
+    <content type="html"><![CDATA[<p>“有人斯有土，有土斯有财”这句话出自<a href="https://www.baidu.com/s?wd=%E3%80%8A%E5%A4%A7%E5%AD%A6%E3%80%8B&usm=1&ie=utf-8&rsv_pq=e56e183d002024d4&oq=%E6%9C%89%E4%BA%BA%E6%96%AF%E6%9C%89%E5%9C%9F,%E6%9C%89%E5%9C%9F%E6%96%AF%E6%9C%89%E8%B4%A2&rsv_t=4e64wG8hzPSeRfIJe7kEJnReHn94xoqYvFxk0sGjOSSlbckStBwRwqKOPFc&sa=re_dqa_zy&icon=1">《大学》</a>，</p><p>“有德此有人，有人此有土，有土此有财，有财此有用”</p><p><img src="/Users/mimc/blog/source/images/50ea4afb-0f7b-4206-935e-2d2877b77c51.webp" alt="50ea4afb-0f7b-4206-935e-2d2877b77c51"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;“有人斯有土，有土斯有财”这句话出自&lt;a href=&quot;https://www.baidu.com/s?wd=%E3%80%8A%E5%A4%A7%E5%AD%A6%E3%80%8B&amp;usm=1&amp;ie=utf-8&amp;rsv_pq=e56e183d002024d4&amp;oq=%E6%</summary>
+      
+    
+    
+    
+    
+    <category term="杂记" scheme="https://cyqmimc.github.io/tags/%E6%9D%82%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>土豆花开</title>
@@ -417,27 +439,6 @@
     <published>2020-08-07T02:58:09.000Z</published>
     <updated>2020-08-07T02:58:09.318Z</updated>
     
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2020-08-06</title>
-    <link href="https://cyqmimc.github.io/2020/08/06/2020-08-06/"/>
-    <id>https://cyqmimc.github.io/2020/08/06/2020-08-06/</id>
-    <published>2020-08-06T09:42:32.000Z</published>
-    <updated>2020-08-06T09:43:33.499Z</updated>
-    
-    <content type="html"><![CDATA[<p>利用Node.js的多版本管理器n</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo npm cache clean -f //清除nodejs的cache：</span><br><span class="line">sudo npm install -g n //使用npm安装n模块</span><br><span class="line">npm view node versions // node所有版本</span><br><span class="line">sudo n latest // 升级到最新版本</span><br><span class="line">sudo n stable // 升级到稳定版本</span><br><span class="line">sudo n xx.xx // 升级到具体版本号</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;利用Node.js的多版本管理器n&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;</summary>
-      
     
     
     
